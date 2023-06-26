@@ -155,6 +155,11 @@ Example:
 - Twitter: [@_koppai_](https://twitter.com/_koppai_)
 - LinkedIn: [LinkedIn](https://www.linkedin.com/in/paingsoe-thu)
 
+👤 **Md Sazzad Hossain**
+
+- GitHub: [@SAZZAD1Q2](https://github.com/SAZZAD1Q2)
+- LinkedIn: [Md Sazzad Hossain](https://www.linkedin.com/in/md-sazzad-hossain-054720257/)
+
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
 <!-- FUTURE FEATURES -->
