@@ -7,4 +7,3 @@ const getData = async () => {
 };
 
 getData();
-console.log(getData());
