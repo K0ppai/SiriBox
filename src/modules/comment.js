@@ -9,6 +9,27 @@ const findShowById = async (id) => {
   return show;
 };
 
+const addEventListenerToCloseBtns = () => {
+  const closeBtns = document.querySelectorAll('.close-btn');
+  closeBtns.forEach((closeBtn) => {
+    closeBtn.addEventListener('click', () => {
+      const popUp = document.getElementById('popUp');
+      parentElement.removeChild(popUp);
+    });
+  });
+};
+
+const limitSentences = (pTag, limit) => {
+  const sentenceRegex = /[.!?]+/g;
+  const sentences = pTag.textContent.trim().split(sentenceRegex);
+
+  if (sentences.length > limit) {
+    const truncatedSentences = sentences.slice(0, limit);
+    const truncatedText = `${truncatedSentences.join(' ')}...`;
+    pTag.textContent = truncatedText;
+  }
+};
+
 const generatePopupCommentBox = async (id) => {
   const show = await findShowById(id);
   const div = document.createElement('div');
@@ -60,6 +81,8 @@ const generatePopupCommentBox = async (id) => {
   `;
 
   parentElement.append(div);
+  addEventListenerToCloseBtns();
+  limitSentences(document.querySelector('#summary p'), 5);
 };
 
 const addEventListenerToCmtBtns = async () => {
