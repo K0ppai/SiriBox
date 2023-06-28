@@ -50,6 +50,35 @@ const getCommentsFromApi = async (id) => {
   const data = await response.json();
   return data;
 };
+const changeApiDataToHtml = (data) => {
+  const htmlString = data
+    .map((element) => `
+    <li>
+      ${element.creation_date} <strong class="px-1">${element.username}:</strong> ${element.comment}
+    </li>
+  `).join('');
+  return htmlString;
+};
+
+const sortCommentsFromLatest = (comments) => {
+  const latestComments = comments.reverse();
+  return latestComments;
+};
+
+const appendCommentsToPopup = async (id) => {
+  const ul = document.getElementById('comments');
+  ul.innerHTML = '';
+  const comments = await getCommentsFromApi(id);
+
+  if (Object.keys(comments)[0] === 'error') {
+    ul.innerHTML = 'No comments yet';
+  } else {
+    const latestComments = sortCommentsFromLatest(comments);
+    const li = changeApiDataToHtml(latestComments);
+    ul.innerHTML = li;
+  }
+};
+
 const addEventListenerToCommentForm = async () => {
   const form = document.querySelector('form');
   const addCmtBtn = document.getElementById('add-cmt-btn');
