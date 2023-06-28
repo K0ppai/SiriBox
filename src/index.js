@@ -1,14 +1,6 @@
 import './index.css';
+import { addEventListenerToCmtBtns, getData } from './modules/comment.js';
 
-const getData = async () => {
-  const response = await fetch('https://api.tvmaze.com/shows');
-  const data = await response.json();
-  return data;
-};
-
-getData();
-
-// write a function to display data
 const displayAllMovies = async () => {
   const data = await getData();
   data.length = 40;
@@ -29,5 +21,6 @@ const displayAllMovies = async () => {
       `).join('');
   const ul = document.getElementById('lists-container');
   ul.innerHTML = htmlString;
+  addEventListenerToCmtBtns();
 };
-displayAllMovies();
+displayAllMovies()
