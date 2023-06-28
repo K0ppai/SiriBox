@@ -1,11 +1,8 @@
 import './index.css';
 import { addEventListenerToCmtBtns, getData } from './modules/comment.js';
 
-const displayAllMovies = async () => {
-  const data = await getData();
-  data.length = 40;
-  const htmlString = data
-    .map((show) => `
+const convertApiDataToHtml = (data) => {
+  const htmlString = data.map((show) => `
           <div class="col d-flex flex-column w-25 m-md-5">
             <img src="${show.image.original}" alt="${show.name}" class="h-75"/>
             <div class="d-flex w-100">
@@ -15,12 +12,21 @@ const displayAllMovies = async () => {
                 <span></span>
               </div>
             </div>
-            <button class="btn btn-outline-success cmt-btn" id="${show.id}">Comments</button>
+            <button class="btn btn-outline-success cmt-btn" data="${show.id}">Comments</button>
             <button class="btn btn-outline-success res-btn">Reservations</button>
           </div>
       `).join('');
+  return htmlString;
+};
+
+const displayAllMovies = async () => {
+  const data = await getData();
+  data.length = 40;
+
+  const shows = convertApiDataToHtml(data);
   const ul = document.getElementById('lists-container');
-  ul.innerHTML = htmlString;
+
+  ul.innerHTML = shows;
   addEventListenerToCmtBtns();
 };
 displayAllMovies();
