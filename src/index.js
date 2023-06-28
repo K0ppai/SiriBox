@@ -1,5 +1,5 @@
 import './index.css';
-import getData from './modules/comment.js';
+import { addEventListenerToCmtBtns, getData } from './modules/comment.js';
 
 const displayAllMovies = async () => {
   const data = await getData();
@@ -21,5 +21,6 @@ const displayAllMovies = async () => {
       `).join('');
   const ul = document.getElementById('lists-container');
   ul.innerHTML = htmlString;
+  addEventListenerToCmtBtns();
 };
 displayAllMovies();
