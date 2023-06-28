@@ -50,6 +50,7 @@ const getCommentsFromApi = async (id) => {
   const data = await response.json();
   return data;
 };
+
 const changeApiDataToHtml = (data) => {
   const htmlString = data
     .map((element) => `
@@ -91,7 +92,6 @@ const addEventListenerToCommentForm = async () => {
     }
     e.preventDefault();
     await postCommentToApi(e, nameInput, commentInput);
-    updateComments(e.target.getAttribute('data'));
     form.reset();
   });
 };
@@ -99,7 +99,6 @@ const addEventListenerToCommentForm = async () => {
 const generatePopupCommentBox = async (id) => {
   const show = await findShowById(id);
   const div = document.createElement('div');
-  const commentCounts = await commentCounter(id);
 
   div.id = 'popUp';
   div.className = 'px-3 py-2';
@@ -133,7 +132,7 @@ const generatePopupCommentBox = async (id) => {
     </div>
     <div class="row justify-content-center m-md-2">
       <div class="col-md-6 d-flex flex-column align-items-center">
-        <h2 class="fs-5" id="comment-title">Latest Comments(${commentCounts})</h2>
+        <h2 class="fs-5" id="comment-title">Latest Comments</h2>
         <ul class="list-unstyled mb-1" id="comments">
         
         </ul>
@@ -163,4 +162,4 @@ const addEventListenerToCmtBtns = async () => {
   });
 };
 
-export { addEventListenerToCmtBtns, getData, commentCounter };
+export { addEventListenerToCmtBtns, getData };
