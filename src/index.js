@@ -23,4 +23,4 @@ const displayAllMovies = async () => {
   ul.innerHTML = htmlString;
   addEventListenerToCmtBtns();
 };
-displayAllMovies();
+displayAllMovies()
