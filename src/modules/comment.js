@@ -45,6 +45,11 @@ const postCommentToApi = async (event, nameInput, commentInput) => {
   await fetch(`${baseUrl}/${appId}/comments`, request);
 };
 
+const getCommentsFromApi = async (id) => {
+  const response = await fetch(`${baseUrl}/${appId}/comments?item_id=${id}`);
+  const data = await response.json();
+  return data;
+};
 const addEventListenerToCommentForm = async () => {
   const form = document.querySelector('form');
   const addCmtBtn = document.getElementById('add-cmt-btn');
