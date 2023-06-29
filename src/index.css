@@ -27,16 +27,17 @@
   padding-right: 20px;
 }
 
-.ds-none {
-  display: none;
-}
-
-.ds.block {
-  display: block;
-}
-
 #summary p,
 .small-fonts {
   font-size: 13px;
   margin: 0;
+}
+
+#comments {
+  max-height: 32vh;
+  overflow: auto;
+}
+
+#comments::-webkit-scrollbar {
+  display: none;
 }
