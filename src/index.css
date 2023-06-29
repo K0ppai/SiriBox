@@ -17,26 +17,26 @@
   z-index: 10;
 }
 
-.close-btn {
+.close-btn{
   font-size: 30px;
   font-weight: 800;
-  background: none;
+  background: none;  
   border: none;
   outline: none;
   cursor: pointer;
   padding-right: 20px;
 }
 
-.ds-none {
-  display: none;
-}
-
-.ds.block {
-  display: block;
-}
-
-#summary p,
-.small-fonts {
+#summary p,.small-fonts{
   font-size: 13px;
-  margin: 0;
+  margin: 0px;
+}
+
+#comments{
+  max-height: 32vh;
+  overflow: auto;
+}
+
+#comments::-webkit-scrollbar {
+  display: none;
 }
