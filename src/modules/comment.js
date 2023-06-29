@@ -80,6 +80,16 @@ const appendCommentsToPopup = async (id) => {
   }
 };
 
+const updateComments = async (id) => {
+  const ul = document.getElementById('comments');
+  const commentTitle = document.getElementById('comment-title');
+  const comments = await getCommentsFromApi(id);
+  const latestComments = sortCommentsFromLatest(comments);
+  const li = await changeApiDataToHtml(latestComments);
+  ul.innerHTML = li;
+  commentTitle.textContent = `Comments (${comments.length})`;
+};
+
 const addEventListenerToCommentForm = async () => {
   const form = document.querySelector('form');
   const addCmtBtn = document.getElementById('add-cmt-btn');
@@ -92,6 +102,7 @@ const addEventListenerToCommentForm = async () => {
     }
     e.preventDefault();
     await postCommentToApi(e, nameInput, commentInput);
+    updateComments(e.target.getAttribute('data'));
     form.reset();
   });
 };
