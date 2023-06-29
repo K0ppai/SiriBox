@@ -1,6 +1,3 @@
-# JavaScript Capstone Project
-<a name="readme-top"></a>
-
 
 <!-- TABLE OF CONTENTS -->
 
@@ -17,7 +14,6 @@
   - [Install](#install)
   - [Usage](#usage)
   - [Run tests](#run-tests)
-  - [Deployment](#triangular_flag_on_post-deployment)
 - [👥 Authors](#authors)
 - [🔭 Future Features](#future-features)
 - [🤝 Contributing](#contributing)
@@ -27,9 +23,11 @@
 
 <!-- PROJECT DESCRIPTION -->
 
-# 📖 JavaScript Capstone Project <a name="about-project" id="about-project"></a>
+# 📖 SiriBox <a name="about-project" id="about-project"></a>
 
-***JavaScript Capstone Project*** is a website. 
+***SiriBox*** is a website that display series of movies and tv shows. It is a capstone project for the Microverse JavaScript curriculum. This project is built with JavaScript, HTML, CSS, and Webpack. The project is built with the following features: 
+- **Add likes and comments**
+- **Send and get data from API**
 
 ## 🛠 Built With <a name="built-with"></a>
 - HTML.
@@ -51,7 +49,9 @@
 
 ### Key Features <a name="key-features"></a>
 
-- **Use of async functions.**
+- **Add likes and comments**
+- **Use of Webpack.**
+- **Use of API**
 
 <!-- ![Screenshot](./images/Screenshot%202.png) -->
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
@@ -86,7 +86,7 @@ Clone this repository to your desired folder:
 
 ```sh
   cd my-folder
-  git clone https://github.com/K0ppai/js-capstone.git
+  git clone https://github.com/K0ppai/SiriBox.git
 ```
 
 ### Install
@@ -94,7 +94,7 @@ Clone this repository to your desired folder:
 Install the prerequisites this project using:
 
 ```sh
-  cd js-capstone
+  cd SiriBox
   npm init -y
   npm install --save-dev hint@7.x
   npm install --save-dev stylelint@13.x stylelint-scss@3.x stylelint-config-standard@21.x stylelint-csstree-validator@1.x
@@ -105,7 +105,7 @@ Install the prerequisites this project using:
 To run the project:
 
 ```
-index.html
+  npm run start
 ```
 
 ### Run tests
@@ -126,13 +126,6 @@ Example command:
   bin/rails test test/models/article_test.rb
 ```
 --->
-
-### Deployment
-
-You can deploy this project using:
-
-- Run index.html on your preferred browser.
-
 <!--
 Example:
 
@@ -166,8 +159,8 @@ Example:
 
 ## 🔭 Future Features <a name="future-features"></a>
 
-- [ ]  **Send and receive data from API**
-- [ ]  **Deploy live link**
+- [ ]  **Separate pages for the series genres**
+- [ ]  **Cool Animations and Transitions**
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
