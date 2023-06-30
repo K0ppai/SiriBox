@@ -32,8 +32,8 @@ const displayAllMovies = async () => {
   const shows = convertApiDataToHtml(data);
   const ul = document.getElementById('lists-container');
   ul.innerHTML = shows;
-  countShows();
-  showCount(countShows());
+  const numberOfShows = countShows();
+  showCount(numberOfShows);
   addEventListenerToCmtBtns();
   addEventListenerToLikeBtns();
 };
