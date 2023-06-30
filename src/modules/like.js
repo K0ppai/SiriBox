@@ -18,6 +18,7 @@ const findRightElement = async (datas, id) => {
   if (foundLike) return foundLike.likes;
   return 0;
 };
+
 const getLikesFromApi = async () => {
   const response = await fetch(`${baseUrl}${appId}/likes`);
   const data = await response.json();
@@ -36,6 +37,7 @@ const addEventListenerToLikeBtns = () => {
     });
   });
 };
+
 const likesCache = {};
 
 const fetchLikesCounts = async () => {

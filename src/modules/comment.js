@@ -107,15 +107,15 @@ const addEventListenerToCommentForm = async () => {
     form.reset();
   });
 };
-// console.log(commentCounter());
+
 const generatePopupCommentBox = async (id) => {
   const show = await findShowById(id);
   const div = document.createElement('div');
 
   div.id = 'popUp';
-  div.className = 'px-3 py-2';
+  div.className = 'px-3 py-2 rounded-3';
   div.innerHTML = `
-    <div class="row">
+    <div class="row" id="popup-desc">
       <div class="col-md-3 d-flex justify-content-center align-items-center">
         <img src="${show.image.original}" alt="${show.name}" class="w-75 h-75"/>
       </div>
@@ -142,18 +142,18 @@ const generatePopupCommentBox = async (id) => {
         </div>
       </div>
     </div>
-    <div class="row justify-content-center m-md-2">
+    <div class="row justify-content-center m-md-2" id="popup-cmt-sec">
       <div class="col-md-6 d-flex flex-column align-items-center">
-        <h2 class="fs-5" id="comment-title">Latest Comments()</h2>
+        <h2 class="fs-5"><b id="comment-title">Latest Comments()</b></h2>
         <ul class="list-unstyled mb-1" id="comments">
         
         </ul>
       </div>
       <form class="col-md-6 d-flex flex-column align-items-center">
-        <h3 class="fs-5">Add a comment</h3>
-        <input id="username" type="text" placeholder="Your name" class="mb-md-1 form-control w-50 px-2 py-1" required>
-        <input id="usercmt" type="text" placeholder="Your comment" class="mb-md-1 form-control w-50 px-2 py-1" required>
-        <button type="submit" data="${id}" class="btn-outline-success btn px-2 py-1" id="add-cmt-btn">Add comment</button>
+        <h3 class="fs-5"><b>Add a comment</b></h3>
+        <input id="username" type="text" placeholder="Your name" class="mb-md-2 form-control w-50 px-2 py-1" required>
+        <input id="usercmt" type="text" placeholder="Your comment" class="mb-md-2 form-control w-50 px-2 py-1" required>
+        <button type="submit" data="${id}" class="btn-outline-success btn px-2 py-1 fw-bold" id="add-cmt-btn">Add comment</button>
       <form>
     <div>
   `;
@@ -161,7 +161,7 @@ const generatePopupCommentBox = async (id) => {
   parentElement.append(div);
   addEventListenerToCloseBtns();
   addEventListenerToCommentForm();
-  limitSentences(document.querySelector('#summary p'), 8);
+  limitSentences(document.querySelector('#summary p'), 4);
   await appendCommentsToPopup(id);
   await commentCounter();
 };
