@@ -2,6 +2,7 @@ import './index.css';
 import logoImage from './assets/siribox-removebg-preview.png';
 import { addEventListenerToCmtBtns, getData } from './modules/comment.js';
 import { addEventListenerToLikeBtns, appendLikesToDom, fetchLikesCounts } from './modules/like.js';
+import { countShows, showCount } from './modules/showCount';
 
 const logo = document.getElementById('logo');
 logo.src = logoImage;
@@ -31,6 +32,8 @@ const displayAllMovies = async () => {
   const shows = convertApiDataToHtml(data);
   const ul = document.getElementById('lists-container');
   ul.innerHTML = shows;
+  countShows();
+  showCount(countShows());
   addEventListenerToCmtBtns();
   addEventListenerToLikeBtns();
 };
