@@ -107,7 +107,7 @@ const addEventListenerToCommentForm = async () => {
     form.reset();
   });
 };
-// console.log(commentCounter());
+
 const generatePopupCommentBox = async (id) => {
   const show = await findShowById(id);
   const div = document.createElement('div');
