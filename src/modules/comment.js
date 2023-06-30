@@ -144,13 +144,13 @@ const generatePopupCommentBox = async (id) => {
     </div>
     <div class="row justify-content-center m-md-2" id="popup-cmt-sec">
       <div class="col-md-6 d-flex flex-column align-items-center">
-        <h2 class="fs-5" id="comment-title">Latest Comments()</h2>
+        <h2 class="fs-5"><b id="comment-title">Latest Comments()</b></h2>
         <ul class="list-unstyled mb-1" id="comments">
         
         </ul>
       </div>
       <form class="col-md-6 d-flex flex-column align-items-center">
-        <h3 class="fs-5">Add a comment</h3>
+        <h3 class="fs-5"><b>Add a comment</b></h3>
         <input id="username" type="text" placeholder="Your name" class="mb-md-2 form-control w-50 px-2 py-1" required>
         <input id="usercmt" type="text" placeholder="Your comment" class="mb-md-2 form-control w-50 px-2 py-1" required>
         <button type="submit" data="${id}" class="btn-outline-success btn px-2 py-1 fw-bold" id="add-cmt-btn">Add comment</button>
