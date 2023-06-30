@@ -2,7 +2,7 @@ import './index.css';
 import logoImage from './assets/siribox-removebg-preview.png';
 import { addEventListenerToCmtBtns, getData } from './modules/comment.js';
 import { addEventListenerToLikeBtns, appendLikesToDom, fetchLikesCounts } from './modules/like.js';
-import { countShows, showCount } from './modules/showCount';
+import { countShows, showCount } from './modules/showCount.js';
 
 const logo = document.getElementById('logo');
 logo.src = logoImage;
