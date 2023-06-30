@@ -12,7 +12,6 @@ const postLikesToApi = async (event) => {
   };
   await fetch(`${baseUrl}${appId}/likes`, request);
 };
-
 const findRightElement = async (datas, id) => {
   const foundLike = await datas.find((data) => data.item_id === id);
   if (foundLike) return foundLike.likes;

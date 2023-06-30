@@ -113,9 +113,9 @@ const generatePopupCommentBox = async (id) => {
   const div = document.createElement('div');
 
   div.id = 'popUp';
-  div.className = 'px-3 py-2';
+  div.className = 'px-3 py-2 rounded-3';
   div.innerHTML = `
-    <div class="row">
+    <div class="row" id="popup-desc">
       <div class="col-md-3 d-flex justify-content-center align-items-center">
         <img src="${show.image.original}" alt="${show.name}" class="w-75 h-75"/>
       </div>
@@ -142,7 +142,7 @@ const generatePopupCommentBox = async (id) => {
         </div>
       </div>
     </div>
-    <div class="row justify-content-center m-md-2">
+    <div class="row justify-content-center m-md-2" id="popup-cmt-sec">
       <div class="col-md-6 d-flex flex-column align-items-center">
         <h2 class="fs-5" id="comment-title">Latest Comments()</h2>
         <ul class="list-unstyled mb-1" id="comments">
@@ -161,7 +161,7 @@ const generatePopupCommentBox = async (id) => {
   parentElement.append(div);
   addEventListenerToCloseBtns();
   addEventListenerToCommentForm();
-  limitSentences(document.querySelector('#summary p'), 8);
+  limitSentences(document.querySelector('#summary p'), 4);
   await appendCommentsToPopup(id);
   await commentCounter();
 };
