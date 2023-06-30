@@ -1,0 +1,72 @@
+@import url('https://fonts.googleapis.com/css2?family=Lato&display=swap');
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Lato', sans-serif;
+  color: white;
+}
+
+body {
+  background-color: black;
+}
+
+#popUp {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background-color: rgba(0, 0, 0, 0.9);
+  width: 80vw;
+  z-index: 10;
+}
+
+.close-btn {
+  font-size: 30px;
+  font-weight: 800;
+  background: none;
+  border: none;
+  outline: none;
+  cursor: pointer;
+  padding-right: 20px;
+}
+
+#summary p,
+.small-fonts {
+  font-size: 13px;
+  margin: 0;
+}
+
+#comments {
+  max-height: 32vh;
+  overflow: auto;
+}
+
+#comments::-webkit-scrollbar {
+  display: none;
+}
+
+nav a {
+  width: 15%;
+  position: relative;
+  right: 2.5vw;
+}
+
+.shows {
+  width: 16vw;
+}
+
+.btn-outline-success {
+  border-color: rgb(28, 231, 131);
+  color: rgb(28, 231, 131);
+}
+
+.btn-outline-success:hover {
+  background-color: rgb(28, 231, 131);
+  color: black;
+}
+
+.fa-heart {
+  cursor: pointer;
+}
