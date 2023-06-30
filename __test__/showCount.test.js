@@ -1,4 +1,4 @@
-import countShows from '../src/modules/showCount.js';
+import { countShows } from '../src/modules/showCount.js';
 import '../node_modules/jsdom-global/register.js';
 
 describe('commentCounter', () => {
