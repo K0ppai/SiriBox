@@ -9,7 +9,7 @@ const logo = document.getElementById('logo');
 logo.src = logoImage;
 
 const convertApiDataToHtml = (data) => {
-  const htmlString = data.reverse().map((show) => `
+  const htmlString = data.map((show) => `
           <div class="col d-flex flex-column mx-2 my-4 p-0 shows align-items-center justify-content-end">
             <div class="background-image" style="background-image: url(${show.image.original});"></div>
             <h1 class="m-0 show-titles text-white p-2">${show.name}</h1>
@@ -37,7 +37,7 @@ const displayShows = async (genre, shows) => {
   showCount(genre, numberOfShows);
 };
 
-displayShows('All Shows', allShows);
+displayShows('All Shows', allShows.reverse());
 
 const displayShowsByGenre = (genre) => {
   if (genre === 'All Shows') {
@@ -48,7 +48,7 @@ const displayShowsByGenre = (genre) => {
     return;
   }
   const ShowsByGenre = allShows.filter((show) => show.genres.includes(genre));
-  displayShows(genre, ShowsByGenre);
+  displayShows(genre, ShowsByGenre.reverse());
 };
 
 const chooseGenre = document.getElementById('drop-down');
