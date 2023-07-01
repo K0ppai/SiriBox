@@ -1,8 +1,9 @@
-import getData from './getDatafromApi.js';
+import { getData } from './getDatafromApi.js';
 import commentCounter from './commentCount.js';
+import { appId } from './data.js';
 
 const parentElement = document.getElementById('parent-container');
-const appId = '9FCYozFTWHToQfPAhtFa';
+const body = document.querySelector('body');
 const baseUrl = 'https://us-central1-involvement-api.cloudfunctions.net/capstoneApi/apps/';
 
 const findShowById = async (id) => {
@@ -16,20 +17,12 @@ const addEventListenerToCloseBtns = () => {
   closeBtns.forEach((closeBtn) => {
     closeBtn.addEventListener('click', () => {
       const popUp = document.getElementById('popUp');
+      const overlay = document.getElementById('overlay');
       parentElement.removeChild(popUp);
+      parentElement.removeChild(overlay);
+      body.style.overflow = 'auto';
     });
   });
-};
-
-const limitSentences = (pTag, limit) => {
-  const sentenceRegex = /[.!?,;]+/g;
-  const sentences = pTag.textContent.trim().split(sentenceRegex);
-
-  if (sentences.length > limit) {
-    const truncatedSentences = sentences.slice(0, limit);
-    const truncatedText = `${truncatedSentences.join(' ')}...`;
-    pTag.textContent = truncatedText;
-  }
 };
 
 const postCommentToApi = async (event, nameInput, commentInput) => {
@@ -111,57 +104,62 @@ const addEventListenerToCommentForm = async () => {
 const generatePopupCommentBox = async (id) => {
   const show = await findShowById(id);
   const div = document.createElement('div');
+  const overlay = document.createElement('div');
+  overlay.id = 'overlay';
 
   div.id = 'popUp';
-  div.className = 'px-3 py-2 rounded-3';
+  div.className = 'rounded-4';
   div.innerHTML = `
-    <div class="row" id="popup-desc">
-      <div class="col-md-3 d-flex justify-content-center align-items-center">
-        <img src="${show.image.original}" alt="${show.name}" class="w-75 h-75"/>
+    <div id="bg-layer" class="p-md-5 p-2 h-100">
+      <div class="row" id="popup-desc">
+        <div class="background-image" style="background-image: url(${show.image.original});"></div>
+        <div class="col-md-3 d-flex justify-content-center align-items-center">
+          <img src="${show.image.original}" alt="${show.name}" class="cmt-img"/>
+        </div>
+        <div class="col-md-9">
+          <div class="d-flex justify-content-between align-items-center p-2 p-md-0">
+            <h1 class="cmt-show-name">${show.name}</h1>
+            <button class="close-btn p-0">&times;</button>
+          </div>
+          <div class="d-flex justify-content-around mb-2 m-md-0">
+            <span class="small-fonts"><strong>Rating :</strong> ${show.rating.average}</span>
+            <span class="small-fonts"><a href="https://www.imdb.com/title/${show.externals.imdb}/"><strong>IMDB :</strong> ${show.externals.imdb}</a></span>
+          </div>
+          <span class="fs-6 fw-bold py-5 p-md-0">Overview :</span><br>
+          <article id="summary" class="small-fonts mb-2">${show.summary}</article>
+          <div class="row">
+            <div class="col-6">
+              <span class="small-fonts"><strong>Genres : </strong>${show.genres}</span><br>
+              <span class="small-fonts"><strong>Average Run Time : </strong>${show.averageRuntime}</span><br>
+              <span class="small-fonts"><strong>Ended : </strong>${show.ended}</span>
+            </div>
+            <div class="col-6">
+              <span class="small-fonts"><strong>Language : </strong>${show.language}</span><br>
+              <span class="small-fonts"><strong>Type : </strong>${show.type}</span>
+            </div>
+          </div>
+        </div>
       </div>
-      <div class="col-md-9">
-        <div class="d-flex justify-content-between">
-          <h1>${show.name}</h1>
-          <button class="close-btn">&times;</button>
+      <div class="row justify-content-center p-md-2 mt-md-0" id="popup-cmt-sec">
+        <div class="col-md-6 d-flex flex-column align-items-center mt-2">
+          <h3 class="p-1"><strong id="comment-title">Latest Comments()</strong></h3>
+          <ul class="list-unstyled mb-1" id="comments">
+          
+          </ul>
         </div>
-        <div class="d-flex justify-content-md-around">
-          <span class="small-fonts"><strong>Rating :</strong> ${show.rating.average}</span>
-          <span class="small-fonts"><a href="https://www.imdb.com/title/${show.externals.imdb}/"><strong>IMDB :</strong> ${show.externals.imdb}</a></span>
-        </div>
-        <article id="summary" class="small-fonts"><span class="fs-5 fw-bold">Overview :</span><br>${show.summary}</article>
-        <div class="row">
-          <div class="col-md-6">
-            <span class="small-fonts"><strong>Genres : </strong>${show.genres}</span><br>
-            <span class="small-fonts"><strong>Average Run Time : </strong>${show.averageRuntime}</span><br>
-            <span class="small-fonts"><strong>Ended : </strong>${show.ended}</span>
-          </div>
-          <div class="col-md-6">
-            <span class="small-fonts"><strong>Language : </strong>${show.language}</span><br>
-            <span class="small-fonts"><strong>Type : </strong>${show.type}</span>
-          </div>
-        </div>
+        <form class="col-md-6 d-flex flex-column align-items-center mt-2">
+          <h3 class="p-1" id="form-title"><strong>Add a comment</strong></h3>
+          <input id="username" type="text" placeholder="Your name" class="mb-2 form-control w-50 px-2 py-1" required>
+          <input id="usercmt" type="text" placeholder="Your comment" class="mb-2 form-control w-50 px-2 py-1" required>
+          <button type="submit" data="${id}" class="btn-outline-success btn px-2 py-1 fw-bold" id="add-cmt-btn">Add comment</button>
+        <form>
       </div>
     </div>
-    <div class="row justify-content-center m-md-2" id="popup-cmt-sec">
-      <div class="col-md-6 d-flex flex-column align-items-center">
-        <h2 class="fs-5"><b id="comment-title">Latest Comments()</b></h2>
-        <ul class="list-unstyled mb-1" id="comments">
-        
-        </ul>
-      </div>
-      <form class="col-md-6 d-flex flex-column align-items-center">
-        <h3 class="fs-5"><b>Add a comment</b></h3>
-        <input id="username" type="text" placeholder="Your name" class="mb-md-2 form-control w-50 px-2 py-1" required>
-        <input id="usercmt" type="text" placeholder="Your comment" class="mb-md-2 form-control w-50 px-2 py-1" required>
-        <button type="submit" data="${id}" class="btn-outline-success btn px-2 py-1 fw-bold" id="add-cmt-btn">Add comment</button>
-      <form>
-    <div>
   `;
 
-  parentElement.append(div);
+  parentElement.append(div, overlay);
   addEventListenerToCloseBtns();
   addEventListenerToCommentForm();
-  limitSentences(document.querySelector('#summary p'), 4);
   await appendCommentsToPopup(id);
   await commentCounter();
 };
@@ -171,8 +169,9 @@ const addEventListenerToCmtBtns = async () => {
   cmtBtns.forEach((cmtBtn) => {
     cmtBtn.addEventListener('click', (e) => {
       generatePopupCommentBox(e.target.getAttribute('data'));
+      body.style.overflow = 'hidden';
     });
   });
 };
 
-export { addEventListenerToCmtBtns, getData };
+export { addEventListenerToCmtBtns as default };

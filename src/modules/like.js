@@ -29,11 +29,15 @@ const addEventListenerToLikeBtns = () => {
   const likeBtns = document.querySelectorAll('.like-btn');
   likeBtns.forEach((btn) => {
     btn.addEventListener('click', async (e) => {
+      const likeBtn = document.getElementById(e.target.id);
+      likeBtn.style.animation = 'animate .8s steps(28) 1';
+      likeBtn.style.backgroundPosition = 'right';
       await postLikesToApi(e);
       const data = await getLikesFromApi();
       const foundLike = await findRightElement(data, e.target.id);
       const likeCount = document.getElementById(`like-count-${e.target.id}`);
-      likeCount.textContent = `${foundLike}`;
+      likeCount.textContent = `${foundLike} likes`;
+      likeBtn.style.animation = 'none';
     });
   });
 };

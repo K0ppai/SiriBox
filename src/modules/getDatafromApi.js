@@ -3,4 +3,11 @@ const getData = async () => {
   const data = await response.json();
   return data;
 };
-export { getData as default };
+
+const fetchData = async () => {
+  let shows = [];
+  shows = await getData();
+  return shows;
+};
+await fetchData();
+export { getData, fetchData };

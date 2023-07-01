@@ -4,9 +4,9 @@ const countShows = () => {
   return childCount;
 };
 
-const showCount = async (count) => {
+const showCount = async (genre, count) => {
   const allShows = document.getElementById('all-shows');
-  allShows.textContent = `All Shows(${count})`;
+  allShows.textContent = `${genre} ( ${count} )`;
 };
 
 export { countShows, showCount };
