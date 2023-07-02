@@ -70,7 +70,6 @@ body {
 }
 
 #comments {
-  max-height: 32vh;
   overflow: auto;
 }
 
@@ -403,9 +402,33 @@ select option:hover {
   }
 }
 
-@media screen and (min-width: 1200px) {
+@media screen and (min-width: 1000px) {
   .shows {
     width: 17vw;
     height: 45vh;
+  }
+
+  #comments {
+    max-height: 30vh;
+  }
+}
+
+@media screen and (max-width: 400px) {
+  #comments {
+    max-height: 10vh;
+  }
+
+  #summary {
+    height: 9vh;
+  }
+}
+
+@media screen and (min-height: 768px) {
+  #comments {
+    max-height: 20vh;
+  }
+
+  #summary {
+    height: 15vh;
   }
 }

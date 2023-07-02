@@ -48,8 +48,12 @@ const getCommentsFromApi = async (id) => {
 const changeApiDataToHtml = (data) => {
   const htmlString = data
     .map((element) => `
-    <li>
-      ${element.creation_date} <strong class="px-1">${element.username}:</strong> ${element.comment}
+    <li class="row">
+      <span class="col-5 d-flex flex-column align-items-end">
+        <strong class="px-1">${element.username}:</strong>
+        <span>${element.creation_date}</span>
+      </span>
+      <span class="col-7">${element.comment}</span>
     </li>
   `).join('');
   return htmlString;
@@ -128,7 +132,7 @@ const generatePopupCommentBox = async (id) => {
           <span class="fs-6 fw-bold py-5 p-md-0">Overview :</span><br>
           <article id="summary" class="small-fonts mb-2">${show.summary}</article>
           <div class="row">
-            <div class="col-7">
+            <div class="col-12 col-md-7">
               <span class="small-fonts"><strong>Genres : </strong>${show.genres}</span><br>
               <span class="small-fonts"><strong>Average Run Time : </strong>${show.averageRuntime}</span><br>
               <span class="small-fonts"><strong>Ended : </strong>${show.ended}</span>
@@ -142,8 +146,8 @@ const generatePopupCommentBox = async (id) => {
       </div>
       <div class="row justify-content-center p-md-2 mt-md-0" id="popup-cmt-sec">
         <div class="col-md-6 d-flex flex-column align-items-center mt-2">
-          <h3 class="p-1"><strong id="comment-title">Latest Comments()</strong></h3>
-          <ul class="list-unstyled mb-1" id="comments">
+          <h3 class="p-1"><strong id="comment-title"></strong></h3>
+          <ul class="list-unstyled mb-1 w-100" id="comments">
           
           </ul>
         </div>
