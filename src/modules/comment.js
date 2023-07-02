@@ -110,7 +110,7 @@ const generatePopupCommentBox = async (id) => {
   div.id = 'popUp';
   div.className = 'rounded-4';
   div.innerHTML = `
-    <div id="bg-layer" class="p-md-5 p-2 h-100">
+    <div id="bg-layer" class="p-md-5 px-4 py-2 h-100">
       <div class="row" id="popup-desc">
         <div class="background-image" style="background-image: url(${show.image.original});"></div>
         <div class="col-md-3 d-flex justify-content-center align-items-center">

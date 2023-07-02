@@ -127,7 +127,7 @@ nav a {
 }
 
 #drop-down {
-  width: 15%;
+  width: 20%;
   font-size: 16px;
   padding: 6px;
 }
@@ -340,12 +340,12 @@ select option:hover {
     font-size: 14px;
     align-self: center;
     position: relative;
-    left: 5%;
+    left: 3%;
   }
 
   .shows {
-    width: 27vw;
-    height: 25vh;
+    width: 25vw;
+    height: 20vh;
   }
 
   .show-titles {

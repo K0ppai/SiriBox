@@ -37,7 +37,7 @@ const displayShows = async (genre, shows) => {
   showCount(genre, numberOfShows);
 };
 
-displayShows('All Shows', allShows.reverse());
+await displayShows('All Shows', allShows.reverse());
 
 const displayShowsByGenre = (genre) => {
   if (genre === 'All Shows') {
@@ -56,13 +56,18 @@ chooseGenre.addEventListener('change', (e) => {
   displayShowsByGenre(e.target.value);
 });
 
-const mediaQuery = window.matchMedia('(max-width: 768px)');
-const changeSelectText = (mq) => {
-  if (mq.matches) {
-    const chooseGenre = document.querySelector('option[selected]');
-    chooseGenre.textContent = 'Genre';
+const selectedOption = document.querySelector('option[selected]');
+
+const updateSelectedOptionText = () => {
+  if (window.innerWidth <= 768) {
+    selectedOption.innerHTML = 'Genre';
   } else {
-    chooseGenre.textContent = 'Choose Genre';
+    selectedOption.innerHTML = 'Choose Genre';
   }
 };
-changeSelectText(mediaQuery);
+
+// Initial update when the page loads
+updateSelectedOptionText();
+
+// Event listener for window resize to update the text dynamically
+window.addEventListener('resize', updateSelectedOptionText);
