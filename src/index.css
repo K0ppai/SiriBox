@@ -395,6 +395,6 @@ select option:hover {
 @media screen and (min-width: 1200px) {
   .shows {
     width: 17vw;
-    height: 40vh;
+    height: 45vh;
   }
 }
