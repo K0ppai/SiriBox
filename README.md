@@ -8,7 +8,6 @@
     - [Tech Stack](#tech-stack)
     - [Key Features](#key-features)
   - [🚀 Live Demo](#live-demo)
-  - [🎥 Video Presentation](#video-presentation)
 - [💻 Getting Started](#getting-started)
   - [Setup](#setup)
   - [Prerequisites](#prerequisites)
@@ -26,9 +25,8 @@
 
 # 📖 SiriBox <a name="about-project" id="about-project"></a>
 
-***SiriBox*** is a website that display series of movies and tv shows. It is a capstone project for the Microverse JavaScript curriculum. This project is built with JavaScript, HTML, CSS, and Webpack. The project is built with the following features: 
-- **Add likes and comments**
-- **Send and get data from API**
+***SiriBox*** is a website that showcases a collection of movies and TV shows. It serves as the capstone project for the Microverse JavaScript curriculum. Developed using JavaScript, HTML, CSS, and Webpack, it utilizes API data to display content. Users can interact by liking and commenting on the website. 
+
 
 ## 🛠 Built With <a name="built-with"></a>
 - HTML.
@@ -62,9 +60,7 @@
 ## 🚀 Live Demo <a name="live-demo" id="live-demo"></a>
 
 - Click here for [live](https://k0ppai.github.io/SiriBox/) demo.
-## 🎥 Video Presentation <a name="video-presentation" id="video-presentation"></a>
-- Click here for presentation [video](https://drive.google.com/file/d/1y9suGKCaztdT5jTNcTPXUn_iAhwG1YYX/view?usp=sharing)
-<!-- - You can find the website [here](https://ochiengsteven.github.io/awesome-books/) -->
+
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
@@ -150,21 +146,10 @@ Example:
 - Twitter: [@_koppai_](https://twitter.com/_koppai_)
 - LinkedIn: [LinkedIn](https://www.linkedin.com/in/paingsoe-thu)
 
-👤 **Md Sazzad Hossain**
-
-- GitHub: [@SAZZAD1Q2](https://github.com/SAZZAD1Q2)
-- LinkedIn: [Md Sazzad Hossain](https://www.linkedin.com/in/md-sazzad-hossain-054720257/)
-
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
 <!-- FUTURE FEATURES -->
 
-## 🔭 Future Features <a name="future-features"></a>
-
-- [ ]  **Separate pages for the series genres**
-- [ ]  **Cool Animations and Transitions**
-
-<p align="right">(<a href="#readme-top">back to top</a>)</p>
 
 <!-- CONTRIBUTING -->
 
