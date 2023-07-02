@@ -128,12 +128,12 @@ const generatePopupCommentBox = async (id) => {
           <span class="fs-6 fw-bold py-5 p-md-0">Overview :</span><br>
           <article id="summary" class="small-fonts mb-2">${show.summary}</article>
           <div class="row">
-            <div class="col-6">
+            <div class="col-7">
               <span class="small-fonts"><strong>Genres : </strong>${show.genres}</span><br>
               <span class="small-fonts"><strong>Average Run Time : </strong>${show.averageRuntime}</span><br>
               <span class="small-fonts"><strong>Ended : </strong>${show.ended}</span>
             </div>
-            <div class="col-6">
+            <div class="col-5">
               <span class="small-fonts"><strong>Language : </strong>${show.language}</span><br>
               <span class="small-fonts"><strong>Type : </strong>${show.type}</span>
             </div>
