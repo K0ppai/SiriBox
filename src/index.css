@@ -432,3 +432,13 @@ select option:hover {
     height: 15vh;
   }
 }
+
+@media screen and (min-height: 850px) {
+  #comments {
+    max-height: 20vh;
+  }
+
+  #summary {
+    height: 15vh;
+  }
+}
