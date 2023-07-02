@@ -85,8 +85,8 @@ nav a {
 }
 
 .shows {
-  width: 16vw;
-  height: 45vh;
+  width: 25vw;
+  height: 30vh;
   position: relative;
   background-color: rgb(0, 0, 0, 0.5);
 }
@@ -344,7 +344,7 @@ select option:hover {
   }
 
   .shows {
-    width: 40vw;
+    width: 27vw;
     height: 25vh;
   }
 
@@ -389,5 +389,12 @@ select option:hover {
 
   #comments {
     max-height: 17vh;
+  }
+}
+
+@media screen and (min-width: 1200px) {
+  .shows {
+    width: 17vw;
+    height: 40vh;
   }
 }
