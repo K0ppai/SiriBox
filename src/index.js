@@ -10,8 +10,8 @@ logo.src = logoImage;
 
 const convertApiDataToHtml = (data) => {
   const htmlString = data.map((show) => `
-          <div class="col d-flex flex-column mx-2 my-4 p-0 shows align-items-center justify-content-end">
-            <div class="background-image scale-in-center" style="background-image: url(${show.image.original});"></div>
+          <div class="col d-flex flex-column mx-2 my-4 p-0 shows align-items-center justify-content-end scale-in-center">
+            <div class="background-image" style="background-image: url(${show.image.original});"></div>
             <h1 class="m-0 show-titles text-white p-2">${show.name}</h1>
             <div class="d-flex align-items-center like-container">
               <span class="heart like-btn" id="${show.id}"></span>
