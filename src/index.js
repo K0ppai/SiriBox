@@ -44,7 +44,7 @@ const displayShowsByGenre = (genre) => {
     displayShows(genre, allShows);
     return;
   }
-  if (genre === 'Choose Genre') {
+  if (genre === 'Choose Genre' || genre === 'Genre') {
     return;
   }
   const ShowsByGenre = allShows.filter((show) => show.genres.includes(genre));
@@ -55,3 +55,14 @@ const chooseGenre = document.getElementById('drop-down');
 chooseGenre.addEventListener('change', (e) => {
   displayShowsByGenre(e.target.value);
 });
+
+const mediaQuery = window.matchMedia('(max-width: 768px)');
+const changeSelectText = (mq) => {
+  if (mq.matches) {
+    const chooseGenre = document.querySelector('option[selected]');
+    chooseGenre.textContent = 'Genre';
+  } else {
+    chooseGenre.textContent = 'Choose Genre';
+  }
+};
+changeSelectText(mediaQuery);
