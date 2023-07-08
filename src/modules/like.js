@@ -36,7 +36,7 @@ const addEventListenerToLikeBtns = () => {
       const data = await getLikesFromApi();
       const foundLike = await findRightElement(data, e.target.id);
       const likeCount = document.getElementById(`like-count-${e.target.id}`);
-      likeCount.textContent = `${foundLike} likes`;
+      likeCount.textContent = `${foundLike}`;
       likeBtn.style.animation = 'none';
     });
   });

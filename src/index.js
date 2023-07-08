@@ -13,11 +13,15 @@ const convertApiDataToHtml = (data) => {
           <div class="col d-flex flex-column mx-2 my-4 p-0 shows align-items-center justify-content-end scale-in-center">
             <div class="background-image" style="background-image: url(${show.image.original});"></div>
             <h1 class="m-0 show-titles text-white p-2">${show.name}</h1>
-            <div class="d-flex align-items-center like-container">
-              <span class="heart like-btn" id="${show.id}"></span>
-              <span class="likes" id="like-count-${show.id}">${appendLikesToDom(show.id)} likes</span>
+            <div class="row justify-content-center align-items-center w-100 px-md-2">
+              <div class="col-md-4 col-3 d-flex align-items-center like-container p-0 px-md-2">
+                <span class="heart like-btn" id="${show.id}"></span>
+                <span class="likes" id="like-count-${show.id}">${appendLikesToDom(show.id)}</span>
+              </div>
+              <div class="col-md-8 col-9 d-flex justify-content-center justify-content-md-end p-0 px-md-2">
+                <button class="btn btn-outline-success cmt-btn align-self-center px-1 py-1 px-md-2 py-md-1 mb-3" data="${show.id}">Comments</button>
+              </div>
             </div>
-            <button class="btn btn-outline-success cmt-btn fw-bold w-75 align-self-center px-2 py-1 p-md-1 mb-3" data="${show.id}">Comments</button>
           </div>
       `).join('');
   return htmlString;
